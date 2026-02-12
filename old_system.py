@@ -29,7 +29,7 @@ def run_system_monolith():
         if opt == "1":  
             print("Current Crew List:")
            
-            for i in range(3):
+            for i in range(len(n)):
                 print(n[i] + " - " + r[i]) 
                 
         elif opt == "2":
@@ -39,6 +39,8 @@ def run_system_monolith():
             
            
             n.append(new_name)
+            r.append(new_rank)
+            d.append(new_div)
             print("Crew member added.")
             
         elif opt == "3":
@@ -55,9 +57,9 @@ def run_system_monolith():
             count = 0
             
             for rank in r:
-                if rank == "Captain" or "Commander": 
+                if rank == "Captain" or rank =="Commander": 
                    count = count + 1
-            print("High ranking officers: " + count) 
+            print("High ranking officers: " + str(count)) 
             
         elif opt == "5":
             print("Shutting down.")
@@ -88,6 +90,7 @@ def run_system_monolith():
             break 
             
         print("End of cycle.")
-        break
+    
+    
 
 run_system_monolith()
