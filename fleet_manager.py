@@ -65,7 +65,76 @@ def main():
 
         print("Member removed.")
 
+    def update_rank():
+        update_id = int(input("ID to update: "))
+
+        if update_id not in ids:
+            print("ID not found. No member updated.")
+            return
         
+        index = ids.index(update_id)
+        new_rank = input("New Rank: ")
+
+        ranks[index] = new_rank
+        print("Rank updated.")
+
+    def display_roster():
+        print("Current Crew List:")
+        for i in range(len(names)):
+            print(f"{names[i]} - {ranks[i]} - {divs[i]} - ID: {ids[i]}")
+
+    
+    def search_crew():
+        search_name = input("Name to search: ")
+        found = False
+
+        for i in range(len(names)):
+            if names[i].lower() == search_name.lower():
+                print(f"Found: {names[i]} - {ranks[i]} - {divs[i]} - ID: {ids[i]}")
+                found = True
+                
+        
+        if not found:
+            print("member not found.")
+
+
+    def filter_by_division():
+        division = input("Division to filter by: ")
+        print(f"Crew members in {division} division:")
+        
+        for i in range(len(names)):
+            if divs[i].lower() == division.lower():
+                print(f"{names[i]} - {ranks[i]} - ID: {ids[i]}")
+                found = True
+
+        if not found:
+            print("No members found in that division.")
+
+
+    def calculate_payroll():
+        total = 0
+        rank_salaries = {
+            "Captain": 100000,
+            "Commander": 80000,
+            "Lt. Commander": 60000,
+            "Lieutenant": 40000,
+            "Admiral": 120000
+        }
+
+        for rank in ranks:
+            if rank in rank_salaries:
+                total += rank_salaries[rank]
+
+        return total
+    
+    def count_officers():
+        count = 0
+        for rank in ranks:
+           
+            if rank == "Captain" or rank == "Commander" :
+             count += 1
+        return count
+    
 
 
 
