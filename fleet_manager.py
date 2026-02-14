@@ -1,6 +1,6 @@
 def main():
 
-    names, ranks, divs, ids = init_database()
+    
     
     
     def init_database():
@@ -136,6 +136,36 @@ def main():
         return count
     
 
+    names, ranks, divs, ids = init_database()
+
+    while True:
+        option = display_menu()
+
+        if option == "1":
+            display_roster()
+        elif option == "2":
+            add_member()
+        elif option == "3":
+            remove_member()
+        elif option == "4":
+            update_rank()
+        elif option == "5":
+            search_crew()
+        elif option == "6":
+            filter_by_division()
+        elif option == "7":
+            total = calculate_payroll()
+            print(f"Total Payroll: ${total}")
+        elif option == "8":
+            officer_count = count_officers()
+            print(f"Number of Officers: {officer_count}")
+        elif option == "9":
+            print("Exiting program.")
+            break
+        else:
+            print("Invalid option. Please try again.")
+    
+
 
 
 
@@ -148,4 +178,3 @@ main()
 
 
 
-main()
